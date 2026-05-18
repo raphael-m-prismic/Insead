@@ -69,7 +69,7 @@ type ContentRelationshipFieldWithData<
   >;
 }[Exclude<TCustomType[number], string>["id"]];
 
-type PageDocumentDataSlicesSlice = TextSlice;
+type PageDocumentDataSlicesSlice = HeroBannerSlice | TextSlice;
 
 /**
  * Content for Page documents
@@ -144,6 +144,79 @@ export type PageDocument<Lang extends string = string> =
 export type AllDocumentTypes = PageDocument;
 
 /**
+ * Primary content in *HeroBanner → Image → Primary*
+ */
+export interface HeroBannerSliceImagePrimary {
+  /**
+   * Image field in *HeroBanner → Image → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.image.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Image variation for HeroBanner Slice
+ *
+ * - **API ID**: `image`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroBannerSliceImage = prismic.SharedSliceVariation<
+  "image",
+  Simplify<HeroBannerSliceImagePrimary>,
+  never
+>;
+
+/**
+ * Primary content in *HeroBanner → Video → Primary*
+ */
+export interface HeroBannerSliceVideoPrimary {
+  /**
+   * Video field in *HeroBanner → Video → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.video.primary.video
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  video: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Video variation for HeroBanner Slice
+ *
+ * - **API ID**: `video`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroBannerSliceVideo = prismic.SharedSliceVariation<
+  "video",
+  Simplify<HeroBannerSliceVideoPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroBanner*
+ */
+type HeroBannerSliceVariation = HeroBannerSliceImage | HeroBannerSliceVideo;
+
+/**
+ * HeroBanner Shared Slice
+ *
+ * - **API ID**: `hero_banner`
+ * - **Description**: HeroBanner
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroBannerSlice = prismic.SharedSlice<
+  "hero_banner",
+  HeroBannerSliceVariation
+>;
+
+/**
  * Primary content in *Text → Default → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -210,6 +283,12 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      HeroBannerSlice,
+      HeroBannerSliceImagePrimary,
+      HeroBannerSliceVideoPrimary,
+      HeroBannerSliceVariation,
+      HeroBannerSliceImage,
+      HeroBannerSliceVideo,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceVariation,
