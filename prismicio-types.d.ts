@@ -102,6 +102,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | KeyFiguresSlice
   | HeroBannerSlice
   | TextSlice
   | ValuePropositionSlice;
@@ -249,6 +250,96 @@ type HeroBannerSliceVariation = HeroBannerSliceImage | HeroBannerSliceVideo;
 export type HeroBannerSlice = prismic.SharedSlice<
   "hero_banner",
   HeroBannerSliceVariation
+>;
+
+/**
+ * Item in *KeyFigures → Default → Primary → Items*
+ */
+export interface KeyFiguresSliceDefaultPrimaryItemsItem {
+  /**
+   * Value field in *KeyFigures → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: key_figures.default.primary.items[].value
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  value: prismic.KeyTextField;
+
+  /**
+   * Label field in *KeyFigures → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: key_figures.default.primary.items[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *KeyFigures → Default → Primary*
+ */
+export interface KeyFiguresSliceDefaultPrimary {
+  /**
+   * Eyebrow field in *KeyFigures → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: key_figures.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Title field in *KeyFigures → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: key_figures.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Items field in *KeyFigures → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: key_figures.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  items: prismic.GroupField<Simplify<KeyFiguresSliceDefaultPrimaryItemsItem>>;
+}
+
+/**
+ * Default variation for KeyFigures Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type KeyFiguresSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<KeyFiguresSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *KeyFigures*
+ */
+type KeyFiguresSliceVariation = KeyFiguresSliceDefault;
+
+/**
+ * KeyFigures Shared Slice
+ *
+ * - **API ID**: `key_figures`
+ * - **Description**: KeyFigures
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type KeyFiguresSlice = prismic.SharedSlice<
+  "key_figures",
+  KeyFiguresSliceVariation
 >;
 
 /**
@@ -418,6 +509,11 @@ declare module "@prismicio/client" {
       HeroBannerSliceVariation,
       HeroBannerSliceImage,
       HeroBannerSliceVideo,
+      KeyFiguresSlice,
+      KeyFiguresSliceDefaultPrimaryItemsItem,
+      KeyFiguresSliceDefaultPrimary,
+      KeyFiguresSliceVariation,
+      KeyFiguresSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceVariation,
