@@ -5,4 +5,5 @@ import dynamic from "next/dynamic";
 export const components = {
   hero_banner: dynamic(() => import("./HeroBanner")),
   text: dynamic(() => import("./Text")),
+  value_proposition: dynamic(() => import("./ValueProposition")),
 };

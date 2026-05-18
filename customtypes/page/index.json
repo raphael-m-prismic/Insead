@@ -32,6 +32,9 @@
             },
             "text": {
               "type": "SharedSlice"
+            },
+            "value_proposition": {
+              "type": "SharedSlice"
             }
           }
         }

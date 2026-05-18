@@ -2,5 +2,6 @@
 
 @theme {
   --font-sans: var(--font-roboto), ui-sans-serif, system-ui, sans-serif;
-  --brand-primary: #006633;
+  --brand-primary: #00895F;
+  --brand-secondary: #686e71;
 }

@@ -101,7 +101,10 @@ export type HeaderDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = HeroBannerSlice | TextSlice;
+type PageDocumentDataSlicesSlice =
+  | HeroBannerSlice
+  | TextSlice
+  | ValuePropositionSlice;
 
 /**
  * Content for Page documents
@@ -290,6 +293,98 @@ type TextSliceVariation = TextSliceDefault;
  */
 export type TextSlice = prismic.SharedSlice<"text", TextSliceVariation>;
 
+/**
+ * Item in *ValueProposition → Default → Primary → Items*
+ */
+export interface ValuePropositionSliceDefaultPrimaryItemsItem {
+  /**
+   * Icon field in *ValueProposition → Default → Primary → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value_proposition.default.primary.items[].icon
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  icon: prismic.ImageField<never>;
+
+  /**
+   * Title field in *ValueProposition → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value_proposition.default.primary.items[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *ValueProposition → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value_proposition.default.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ValueProposition → Default → Primary*
+ */
+export interface ValuePropositionSliceDefaultPrimary {
+  /**
+   * Title field in *ValueProposition → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value_proposition.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Items field in *ValueProposition → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: value_proposition.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  items: prismic.GroupField<
+    Simplify<ValuePropositionSliceDefaultPrimaryItemsItem>
+  >;
+}
+
+/**
+ * Default variation for ValueProposition Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ValuePropositionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ValuePropositionSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ValueProposition*
+ */
+type ValuePropositionSliceVariation = ValuePropositionSliceDefault;
+
+/**
+ * ValueProposition Shared Slice
+ *
+ * - **API ID**: `value_proposition`
+ * - **Description**: ValueProposition
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ValuePropositionSlice = prismic.SharedSlice<
+  "value_proposition",
+  ValuePropositionSliceVariation
+>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -327,6 +422,11 @@ declare module "@prismicio/client" {
       TextSliceDefaultPrimary,
       TextSliceVariation,
       TextSliceDefault,
+      ValuePropositionSlice,
+      ValuePropositionSliceDefaultPrimaryItemsItem,
+      ValuePropositionSliceDefaultPrimary,
+      ValuePropositionSliceVariation,
+      ValuePropositionSliceDefault,
     };
   }
 }
