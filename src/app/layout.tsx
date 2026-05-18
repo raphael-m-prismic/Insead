@@ -1,7 +1,8 @@
+import "./globals.css";
 import { PrismicPreview } from "@prismicio/next";
 import { Roboto } from "next/font/google";
 import { repositoryName } from "@/prismicio";
-import "./globals.css";
+import { Header } from "@/components/Header";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -16,7 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={roboto.variable}>
-      <body className="font-sans">{children}</body>
+      <body className="font-sans">
+        <Header />
+        <main className="pt-20">{children}</main>
+      </body>
       <PrismicPreview repositoryName={repositoryName} />
     </html>
   );
