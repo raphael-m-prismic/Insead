@@ -45,7 +45,6 @@ const HeroBanner: FC<HeroBannerProps> = ({ slice }) => {
           <PrismicNextImage
             field={background_image}
             fill
-            priority
             sizes="100vw"
             className="object-cover"
           />
@@ -53,7 +52,7 @@ const HeroBanner: FC<HeroBannerProps> = ({ slice }) => {
 
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-transparent" />
 
-        <div className="relative z-10 h-full flex flex-col justify-center max-w-7xl mx-auto px-6 md:px-12">
+        <div className="relative h-full flex flex-col justify-center max-w-7xl mx-auto px-6 md:px-12">
           <div className="max-w-2xl">
             {isFilled.richText(title) && (
               <RichText
