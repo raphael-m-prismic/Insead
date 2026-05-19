@@ -1,0 +1,125 @@
+{
+  "id": "application_form",
+  "type": "SharedSlice",
+  "name": "ApplicationForm",
+  "description": "ApplicationForm",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,strong,em"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "first_name_label": {
+          "type": "Text",
+          "config": {
+            "label": "First Name",
+            "placeholder": ""
+          }
+        },
+        "last_name_label": {
+          "type": "Text",
+          "config": {
+            "label": "Last Name",
+            "placeholder": ""
+          }
+        },
+        "gender_label": {
+          "type": "Text",
+          "config": {
+            "label": "Gender",
+            "placeholder": ""
+          }
+        },
+        "date_of_birth_label": {
+          "type": "Text",
+          "config": {
+            "label": "Date of birth",
+            "placeholder": ""
+          }
+        },
+        "nationality_label": {
+          "type": "Text",
+          "config": {
+            "label": "Nationality",
+            "placeholder": ""
+          }
+        },
+        "work_phone_label": {
+          "type": "Text",
+          "config": {
+            "label": "Work phone",
+            "placeholder": ""
+          }
+        },
+        "email_label": {
+          "type": "Text",
+          "config": {
+            "label": "Email",
+            "placeholder": ""
+          }
+        },
+        "session_label": {
+          "type": "Text",
+          "config": {
+            "label": "Session",
+            "placeholder": ""
+          }
+        },
+        "sessions": {
+          "type": "Group",
+          "config": {
+            "label": "Sessions",
+            "repeat": true,
+            "fields": {
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "submit_label": {
+          "type": "Text",
+          "config": {
+            "label": "Submit button",
+            "placeholder": ""
+          }
+        },
+        "privacy_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Privacy",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

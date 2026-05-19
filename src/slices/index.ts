@@ -3,6 +3,7 @@
 import dynamic from "next/dynamic";
 
 export const components = {
+  application_form: dynamic(() => import("./ApplicationForm")),
   cta: dynamic(() => import("./Cta")),
   hero_banner: dynamic(() => import("./HeroBanner")),
   key_figures: dynamic(() => import("./KeyFigures")),

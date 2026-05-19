@@ -102,6 +102,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | ApplicationFormSlice
   | CtaSlice
   | KeyFiguresSlice
   | HeroBannerSlice
@@ -179,6 +180,188 @@ export type PageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<PageDocumentData>, "page", Lang>;
 
 export type AllDocumentTypes = HeaderDocument | PageDocument;
+
+/**
+ * Item in *ApplicationForm → Default → Primary → Sessions*
+ */
+export interface ApplicationFormSliceDefaultPrimarySessionsItem {
+  /**
+   * Name field in *ApplicationForm → Default → Primary → Sessions*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.sessions[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *ApplicationForm → Default → Primary*
+ */
+export interface ApplicationFormSliceDefaultPrimary {
+  /**
+   * Title field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * First Name field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.first_name_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  first_name_label: prismic.KeyTextField;
+
+  /**
+   * Last Name field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.last_name_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  last_name_label: prismic.KeyTextField;
+
+  /**
+   * Gender field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.gender_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  gender_label: prismic.KeyTextField;
+
+  /**
+   * Date of birth field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.date_of_birth_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  date_of_birth_label: prismic.KeyTextField;
+
+  /**
+   * Nationality field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.nationality_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  nationality_label: prismic.KeyTextField;
+
+  /**
+   * Work phone field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.work_phone_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  work_phone_label: prismic.KeyTextField;
+
+  /**
+   * Email field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.email_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  email_label: prismic.KeyTextField;
+
+  /**
+   * Session field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.session_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  session_label: prismic.KeyTextField;
+
+  /**
+   * Sessions field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.sessions[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  sessions: prismic.GroupField<
+    Simplify<ApplicationFormSliceDefaultPrimarySessionsItem>
+  >;
+
+  /**
+   * Submit button field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.submit_label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  submit_label: prismic.KeyTextField;
+
+  /**
+   * Privacy field in *ApplicationForm → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: application_form.default.primary.privacy_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  privacy_text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for ApplicationForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ApplicationFormSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ApplicationFormSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *ApplicationForm*
+ */
+type ApplicationFormSliceVariation = ApplicationFormSliceDefault;
+
+/**
+ * ApplicationForm Shared Slice
+ *
+ * - **API ID**: `application_form`
+ * - **Description**: ApplicationForm
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type ApplicationFormSlice = prismic.SharedSlice<
+  "application_form",
+  ApplicationFormSliceVariation
+>;
 
 /**
  * Primary content in *Cta → Default → Primary*
@@ -558,6 +741,11 @@ declare module "@prismicio/client" {
       PageDocumentData,
       PageDocumentDataSlicesSlice,
       AllDocumentTypes,
+      ApplicationFormSlice,
+      ApplicationFormSliceDefaultPrimarySessionsItem,
+      ApplicationFormSliceDefaultPrimary,
+      ApplicationFormSliceVariation,
+      ApplicationFormSliceDefault,
       CtaSlice,
       CtaSliceDefaultPrimary,
       CtaSliceVariation,

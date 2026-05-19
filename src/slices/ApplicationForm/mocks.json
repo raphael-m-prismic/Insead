@@ -1,0 +1,105 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Certain"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Labore dolor officia qui sunt proident ut id quis tempor adipisicing. Dolore ullamco sint aute laborum ea in exercitation aliquip anim enim. Nulla ea eu velit aliqua consequat excepteur excepteur aute ipsum nostrud pariatur."
+						}
+					}
+				]
+			},
+			"first_name_label": {
+				"__TYPE__": "FieldContent",
+				"value": "feel",
+				"type": "Text"
+			},
+			"last_name_label": {
+				"__TYPE__": "FieldContent",
+				"value": "fellow",
+				"type": "Text"
+			},
+			"gender_label": {
+				"__TYPE__": "FieldContent",
+				"value": "sad",
+				"type": "Text"
+			},
+			"date_of_birth_label": {
+				"__TYPE__": "FieldContent",
+				"value": "place",
+				"type": "Text"
+			},
+			"nationality_label": {
+				"__TYPE__": "FieldContent",
+				"value": "progress",
+				"type": "Text"
+			},
+			"work_phone_label": {
+				"__TYPE__": "FieldContent",
+				"value": "impossible",
+				"type": "Text"
+			},
+			"email_label": {
+				"__TYPE__": "FieldContent",
+				"value": "skill",
+				"type": "Text"
+			},
+			"session_label": {
+				"__TYPE__": "FieldContent",
+				"value": "chair",
+				"type": "Text"
+			},
+			"submit_label": {
+				"__TYPE__": "FieldContent",
+				"value": "organization",
+				"type": "Text"
+			},
+			"sessions": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"name",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "fighting",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"privacy_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ea et commodo anim adipisicing ea anim velit sunt pariatur. Fugiat amet culpa tempor aute dolor ex id ipsum. Minim cillum cillum amet dolor fugiat veniam pariatur."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
