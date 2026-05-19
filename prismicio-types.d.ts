@@ -102,6 +102,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | TextBlockSlice
   | StatementSlice
   | ApplicationFormSlice
   | CtaSlice
@@ -730,6 +731,61 @@ type TextSliceVariation = TextSliceDefault;
 export type TextSlice = prismic.SharedSlice<"text", TextSliceVariation>;
 
 /**
+ * Primary content in *TextBlock → Default → Primary*
+ */
+export interface TextBlockSliceDefaultPrimary {
+  /**
+   * Title field in *TextBlock → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_block.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Content field in *TextBlock → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_block.default.primary.content
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  content: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TextBlock Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TextBlockSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextBlockSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TextBlock*
+ */
+type TextBlockSliceVariation = TextBlockSliceDefault;
+
+/**
+ * TextBlock Shared Slice
+ *
+ * - **API ID**: `text_block`
+ * - **Description**: TextBlock
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TextBlockSlice = prismic.SharedSlice<
+  "text_block",
+  TextBlockSliceVariation
+>;
+
+/**
  * Item in *ValueProposition → Default → Primary → Items*
  */
 export interface ValuePropositionSliceDefaultPrimaryItemsItem {
@@ -878,6 +934,10 @@ declare module "@prismicio/client" {
       TextSliceDefaultPrimary,
       TextSliceVariation,
       TextSliceDefault,
+      TextBlockSlice,
+      TextBlockSliceDefaultPrimary,
+      TextBlockSliceVariation,
+      TextBlockSliceDefault,
       ValuePropositionSlice,
       ValuePropositionSliceDefaultPrimaryItemsItem,
       ValuePropositionSliceDefaultPrimary,

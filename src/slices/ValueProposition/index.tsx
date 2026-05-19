@@ -53,7 +53,7 @@ const ValueProposition: FC<ValuePropositionProps> = ({ slice }) => {
                 </h3>
               )}
               {item.description && (
-                <p className="text-[#686e71] leading-relaxed">
+                <p className="leading-relaxed">
                   {item.description}
                 </p>
               )}

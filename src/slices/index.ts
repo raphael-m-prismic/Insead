@@ -9,5 +9,6 @@ export const components = {
   key_figures: dynamic(() => import("./KeyFigures")),
   statement: dynamic(() => import("./Statement")),
   text: dynamic(() => import("./Text")),
+  text_block: dynamic(() => import("./TextBlock")),
   value_proposition: dynamic(() => import("./ValueProposition")),
 };

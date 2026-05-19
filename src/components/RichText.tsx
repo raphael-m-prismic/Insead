@@ -75,7 +75,7 @@ export function RichText({ field, components, additionalClassNames }: Props) {
     paragraph: ({ children }) => (
       <p
         className={clsx(
-          "mb-4 text-(--color-text-secondary) text-[14px]",
+          "mb-4 text-(--brand-text) text-[16px]",
           additionalClassNames,
         )}
       >
