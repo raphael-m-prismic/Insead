@@ -474,9 +474,60 @@ export type HeroBannerSliceVideo = prismic.SharedSliceVariation<
 >;
 
 /**
+ * Primary content in *HeroBanner → Image with text → Primary*
+ */
+export interface HeroBannerSliceImageWithTextPrimary {
+  /**
+   * Background Image field in *HeroBanner → Image with text → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.imageWithText.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *HeroBanner → Image with text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.imageWithText.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *HeroBanner → Image with text → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_banner.imageWithText.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Image with text variation for HeroBanner Slice
+ *
+ * - **API ID**: `imageWithText`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type HeroBannerSliceImageWithText = prismic.SharedSliceVariation<
+  "imageWithText",
+  Simplify<HeroBannerSliceImageWithTextPrimary>,
+  never
+>;
+
+/**
  * Slice variation for *HeroBanner*
  */
-type HeroBannerSliceVariation = HeroBannerSliceImage | HeroBannerSliceVideo;
+type HeroBannerSliceVariation =
+  | HeroBannerSliceImage
+  | HeroBannerSliceVideo
+  | HeroBannerSliceImageWithText;
 
 /**
  * HeroBanner Shared Slice
@@ -753,9 +804,11 @@ declare module "@prismicio/client" {
       HeroBannerSlice,
       HeroBannerSliceImagePrimary,
       HeroBannerSliceVideoPrimary,
+      HeroBannerSliceImageWithTextPrimary,
       HeroBannerSliceVariation,
       HeroBannerSliceImage,
       HeroBannerSliceVideo,
+      HeroBannerSliceImageWithText,
       KeyFiguresSlice,
       KeyFiguresSliceDefaultPrimaryItemsItem,
       KeyFiguresSliceDefaultPrimary,

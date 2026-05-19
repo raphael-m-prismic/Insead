@@ -9,7 +9,7 @@ export async function Header() {
   const header = await client.getSingle("header");
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white">
+    <header className="z-999 fixed top-0 left-0 right-0 bg-white">
       <div className="w-full h-full max-w-7xl mx-auto flex flex-row items-center pr-10 xl:pr-0">
         {/* Burger */}
         <div aria-hidden="true" className="w-20 h-20 aspect-square mr-11.25 flex justify-center items-center bg-gray-100 cursor-pointer">
