@@ -1,0 +1,53 @@
+{
+  "id": "id_form",
+  "type": "SharedSlice",
+  "name": "IdForm",
+  "description": "IdForm",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,strong,em"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        },
+        "form_id": {
+          "type": "Text",
+          "config": {
+            "label": "Form Id",
+            "placeholder": ""
+          }
+        },
+        "privacy_text": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Privacy",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,strong,em,hyperlink,list-item,o-list-item"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -6,6 +6,7 @@ export const components = {
   application_form: dynamic(() => import("./ApplicationForm")),
   cta: dynamic(() => import("./Cta")),
   hero_banner: dynamic(() => import("./HeroBanner")),
+  id_form: dynamic(() => import("./IdForm")),
   key_figures: dynamic(() => import("./KeyFigures")),
   statement: dynamic(() => import("./Statement")),
   text: dynamic(() => import("./Text")),

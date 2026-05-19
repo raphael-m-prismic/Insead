@@ -27,6 +27,9 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "id_form": {
+              "type": "SharedSlice"
+            },
             "text_block": {
               "type": "SharedSlice"
             },

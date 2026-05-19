@@ -1,0 +1,47 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Cookies"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Exercitation laboris ea culpa sunt duis non pariatur pariatur est consequat."
+						}
+					}
+				]
+			},
+			"form_id": {
+				"__TYPE__": "FieldContent",
+				"value": "foreign",
+				"type": "Text"
+			},
+			"privacy_text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laboris do esse esse ipsum labore labore consectetur voluptate et commodo. Aliqua culpa sit qui qui est anim ipsum enim mollit et proident. Veniam sit consectetur ipsum excepteur labore ad aute cillum laboris elit sunt incididunt."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

@@ -102,6 +102,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | IdFormSlice
   | TextBlockSlice
   | StatementSlice
   | ApplicationFormSlice
@@ -544,6 +545,78 @@ export type HeroBannerSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *IdForm → Default → Primary*
+ */
+export interface IdFormSliceDefaultPrimary {
+  /**
+   * Title field in *IdForm → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: id_form.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Description field in *IdForm → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: id_form.default.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Form Id field in *IdForm → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: id_form.default.primary.form_id
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  form_id: prismic.KeyTextField;
+
+  /**
+   * Privacy field in *IdForm → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: id_form.default.primary.privacy_text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  privacy_text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for IdForm Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type IdFormSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<IdFormSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *IdForm*
+ */
+type IdFormSliceVariation = IdFormSliceDefault;
+
+/**
+ * IdForm Shared Slice
+ *
+ * - **API ID**: `id_form`
+ * - **Description**: IdForm
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type IdFormSlice = prismic.SharedSlice<"id_form", IdFormSliceVariation>;
+
+/**
  * Item in *KeyFigures → Default → Primary → Items*
  */
 export interface KeyFiguresSliceDefaultPrimaryItemsItem {
@@ -921,6 +994,10 @@ declare module "@prismicio/client" {
       HeroBannerSliceImage,
       HeroBannerSliceVideo,
       HeroBannerSliceImageWithText,
+      IdFormSlice,
+      IdFormSliceDefaultPrimary,
+      IdFormSliceVariation,
+      IdFormSliceDefault,
       KeyFiguresSlice,
       KeyFiguresSliceDefaultPrimaryItemsItem,
       KeyFiguresSliceDefaultPrimary,
