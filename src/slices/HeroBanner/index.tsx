@@ -57,13 +57,7 @@ const HeroBanner: FC<HeroBannerProps> = ({ slice }) => {
             {isFilled.richText(title) && (
               <RichText
                 field={title}
-                components={{
-                  heading1: ({ children }) => (
-                    <h1 className="mb-4 md:mb-6 text-4xl md:text-5xl lg:text-6xl text-white">
-                      {children}
-                    </h1>
-                  ),
-                }}
+                additionalClassNames="mb-4 text-white"
               />
             )}
             {isFilled.richText(description) && (

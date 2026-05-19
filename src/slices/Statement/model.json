@@ -1,0 +1,35 @@
+{
+  "id": "statement",
+  "type": "SharedSlice",
+  "name": "Statement",
+  "description": "Statement",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "eyebrow": {
+          "type": "Text",
+          "config": {
+            "label": "Eyebrow",
+            "placeholder": ""
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2,heading3,strong,em"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

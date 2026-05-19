@@ -7,6 +7,7 @@ export const components = {
   cta: dynamic(() => import("./Cta")),
   hero_banner: dynamic(() => import("./HeroBanner")),
   key_figures: dynamic(() => import("./KeyFigures")),
+  statement: dynamic(() => import("./Statement")),
   text: dynamic(() => import("./Text")),
   value_proposition: dynamic(() => import("./ValueProposition")),
 };

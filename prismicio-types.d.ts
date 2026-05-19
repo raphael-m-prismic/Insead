@@ -102,6 +102,7 @@ export type HeaderDocument<Lang extends string = string> =
   >;
 
 type PageDocumentDataSlicesSlice =
+  | StatementSlice
   | ApplicationFormSlice
   | CtaSlice
   | KeyFiguresSlice
@@ -632,6 +633,61 @@ export type KeyFiguresSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *Statement → Default → Primary*
+ */
+export interface StatementSliceDefaultPrimary {
+  /**
+   * Eyebrow field in *Statement → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: statement.default.primary.eyebrow
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  eyebrow: prismic.KeyTextField;
+
+  /**
+   * Title field in *Statement → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: statement.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Statement Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type StatementSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<StatementSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Statement*
+ */
+type StatementSliceVariation = StatementSliceDefault;
+
+/**
+ * Statement Shared Slice
+ *
+ * - **API ID**: `statement`
+ * - **Description**: Statement
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type StatementSlice = prismic.SharedSlice<
+  "statement",
+  StatementSliceVariation
+>;
+
+/**
  * Primary content in *Text → Default → Primary*
  */
 export interface TextSliceDefaultPrimary {
@@ -814,6 +870,10 @@ declare module "@prismicio/client" {
       KeyFiguresSliceDefaultPrimary,
       KeyFiguresSliceVariation,
       KeyFiguresSliceDefault,
+      StatementSlice,
+      StatementSliceDefaultPrimary,
+      StatementSliceVariation,
+      StatementSliceDefault,
       TextSlice,
       TextSliceDefaultPrimary,
       TextSliceVariation,
