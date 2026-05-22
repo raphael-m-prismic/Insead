@@ -110,7 +110,8 @@ type PageDocumentDataSlicesSlice =
   | KeyFiguresSlice
   | HeroBannerSlice
   | TextSlice
-  | ValuePropositionSlice;
+  | ValuePropositionSlice
+  | TextImageSlice;
 
 /**
  * Content for Page documents
@@ -859,6 +860,119 @@ export type TextBlockSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TextImage → Default → Primary*
+ */
+export interface TextImageSliceDefaultPrimary {
+  /**
+   * Image field in *TextImage → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_image.default.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *TextImage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_image.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *TextImage → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_image.default.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TextImage Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Image on the left, text on the right
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TextImageSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TextImageSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Primary content in *TextImage → Image Right → Primary*
+ */
+export interface TextImageSliceImageRightPrimary {
+  /**
+   * Image field in *TextImage → Image Right → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_image.imageRight.primary.image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  image: prismic.ImageField<never>;
+
+  /**
+   * Title field in *TextImage → Image Right → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_image.imageRight.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  title: prismic.RichTextField;
+
+  /**
+   * Text field in *TextImage → Image Right → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: text_image.imageRight.primary.text
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  text: prismic.RichTextField;
+}
+
+/**
+ * Image Right variation for TextImage Slice
+ *
+ * - **API ID**: `imageRight`
+ * - **Description**: Image on the right, text on the left
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TextImageSliceImageRight = prismic.SharedSliceVariation<
+  "imageRight",
+  Simplify<TextImageSliceImageRightPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TextImage*
+ */
+type TextImageSliceVariation = TextImageSliceDefault | TextImageSliceImageRight;
+
+/**
+ * TextImage Shared Slice
+ *
+ * - **API ID**: `text_image`
+ * - **Description**: TextImage
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TextImageSlice = prismic.SharedSlice<
+  "text_image",
+  TextImageSliceVariation
+>;
+
+/**
  * Item in *ValueProposition → Default → Primary → Items*
  */
 export interface ValuePropositionSliceDefaultPrimaryItemsItem {
@@ -1015,6 +1129,12 @@ declare module "@prismicio/client" {
       TextBlockSliceDefaultPrimary,
       TextBlockSliceVariation,
       TextBlockSliceDefault,
+      TextImageSlice,
+      TextImageSliceDefaultPrimary,
+      TextImageSliceImageRightPrimary,
+      TextImageSliceVariation,
+      TextImageSliceDefault,
+      TextImageSliceImageRight,
       ValuePropositionSlice,
       ValuePropositionSliceDefaultPrimaryItemsItem,
       ValuePropositionSliceDefaultPrimary,
