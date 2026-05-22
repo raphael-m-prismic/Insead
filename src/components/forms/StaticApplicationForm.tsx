@@ -53,7 +53,7 @@ const NATIONALITY_OPTIONS = [
   "Other",
 ];
 
-const DEFAULT_SESSIONS = ["January 2026", "September 2026", "January 2027"];
+const DEFAULT_SESSIONS = ["13 Jul 2026 to 17 Jul 2026", "12 Jul 2027 to 16 Jul 2027"];
 
 const inputClassName =
   "w-full border border-gray-300 rounded-md px-4 py-3 text-base text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--brand-primary)] focus:border-transparent";
