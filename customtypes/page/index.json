@@ -53,6 +53,9 @@
             },
             "value_proposition": {
               "type": "SharedSlice"
+            },
+            "text_image": {
+              "type": "SharedSlice"
             }
           }
         }

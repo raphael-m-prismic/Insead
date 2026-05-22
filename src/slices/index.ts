@@ -12,4 +12,5 @@ export const components = {
   text: dynamic(() => import("./Text")),
   text_block: dynamic(() => import("./TextBlock")),
   value_proposition: dynamic(() => import("./ValueProposition")),
+  text_image: dynamic(() => import("./TextImage")),
 };
